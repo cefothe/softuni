@@ -40,7 +40,7 @@ public class GUnit {
 
 					return result;
 				}).forEach(current -> {
-					System.out.println(current.getKey() + ":");
+					System.out.println(String.format("%s:", current.getKey()));
 					current.getValue().entrySet().stream().sorted((first, second) -> {
 						Integer result = Integer.valueOf(second.getValue().size()).compareTo(first.getValue().size());
 						if (result == 0) {
@@ -48,7 +48,7 @@ public class GUnit {
 						}
 						return result;
 					}).forEach(methods -> {
-						System.out.println("##" + methods.getKey());
+						System.out.println(String.format("##%s", methods.getKey()));
 						methods.getValue().stream().sorted((first, second) -> {
 							Integer result = Integer.valueOf(first.length()).compareTo(second.length());
 							if (result == 0) {
@@ -56,7 +56,7 @@ public class GUnit {
 							}
 							return result;
 						}).forEach(test -> {
-							System.out.println("####" + test);
+							System.out.println(String.format("####%s", test));
 						});
 					});
 				});
