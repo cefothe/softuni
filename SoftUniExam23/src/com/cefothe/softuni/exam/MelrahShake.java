@@ -33,6 +33,13 @@ public class MelrahShake {
 		return removeCharAt(pattern, index);
 	}
 
+	/**
+	 * Remove char at position
+	 * 
+	 * @param s
+	 * @param i
+	 * @return
+	 */
 	public static String removeCharAt(String s, int i) {
 		StringBuffer buf = new StringBuffer();
 		if (i >= 0) {
@@ -42,6 +49,16 @@ public class MelrahShake {
 		return buf.toString();
 	}
 
+	/**
+	 * This method count how many times pattern is contain in input string
+	 * 
+	 * @param inputData
+	 *            {@link String} Input string come from System.in
+	 * @param inputPattern
+	 *            {@link String} This is pattern come from System.in. This pattern should be escape with
+	 *            Pattern.quote(inputPattern)
+	 * @return numbers of times
+	 */
 	public static long countStringInString(String inputData, String inputPattern) {
 		Pattern pattern = Pattern.compile(Pattern.quote(inputPattern));
 		Matcher matcher = pattern.matcher(inputData);
