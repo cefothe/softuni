@@ -35,9 +35,9 @@ public class RoyalNonStop {
 
 	private static BigDecimal goTop(Integer[] customerCordonats, Double[] productsPrice, Integer[] matrix) {
 		BigDecimal currentPrice = new BigDecimal(0d);
-		for (int currentRow = customerCordonats[0]; currentRow >= 1; currentRow--) {
+		for (int currentRow = customerCordonats[0]; currentRow >= 0; currentRow--) {
 			if (currentRow == 0 && customerCordonats[1] == 0) {
-
+				currentPrice = currentPrice.abs();
 			} else {
 				if (isEven(currentRow)) {
 					currentPrice = currentPrice.add(new BigDecimal(currentRow + 1).multiply(
@@ -53,9 +53,9 @@ public class RoyalNonStop {
 
 	private static BigDecimal goLeft(Integer[] customerCordonats, Double[] productsPrice, Integer[] matrix) {
 		BigDecimal currentPrice = new BigDecimal(0d);
-		for (int currentCell = customerCordonats[1]; currentCell >= 1; currentCell--) {
+		for (int currentCell = customerCordonats[1]; currentCell >= 0; currentCell--) {
 			if (currentCell == 0 && customerCordonats[0] == 0) {
-
+				currentPrice = currentPrice.abs();
 			} else {
 				if (isEven(customerCordonats[0])) {
 					currentPrice = currentPrice.add(new BigDecimal(currentCell + 1).multiply(
@@ -75,13 +75,14 @@ public class RoyalNonStop {
 		if (customerCordonats[0] >= customerCordonats[1]) {
 			customerPrice = customerPrice.add(goLeft(customerCordonats, productsPrice, matrix));
 			customerCordonats[1] = 0;
+			customerCordonats[0] = customerCordonats[0] - 1;
 			customerPrice = customerPrice.add(goTop(customerCordonats, productsPrice, matrix));
 		} else {
-			if (customerCordonats[0] >= customerCordonats[1]) {
-				customerPrice = customerPrice.add(goTop(customerCordonats, productsPrice, matrix));
-				customerCordonats[0] = 0;
-				customerPrice = customerPrice.add(goLeft(customerCordonats, productsPrice, matrix));
-			}
+			customerPrice = customerPrice.add(goTop(customerCordonats, productsPrice, matrix));
+			customerCordonats[0] = 0;
+			customerCordonats[1] = customerCordonats[1] - 1;
+			customerPrice = customerPrice.add(goLeft(customerCordonats, productsPrice, matrix));
+
 		}
 		return customerPrice;
 
