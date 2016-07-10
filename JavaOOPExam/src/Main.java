@@ -1,7 +1,7 @@
-import com.cefothe.exam.system.split.SplitSystem;
-import com.cefothe.exam.system.split.factory.HardwareFactory;
-import com.cefothe.exam.system.split.factory.SoftwareFactory;
-import com.cefothe.exam.system.split.hardware.Hardware;
+import system.split.SplitSystem;
+import system.split.factory.HardwareFactory;
+import system.split.factory.SoftwareFactory;
+import system.split.hardware.Hardware;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.cefothe.exam.system.split.common.Configuration.*;
 import static java.lang.System.in;
+import static system.split.common.Configuration.*;
 
 public class Main {
 
