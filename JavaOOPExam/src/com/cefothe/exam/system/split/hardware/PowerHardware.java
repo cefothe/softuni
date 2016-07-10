@@ -9,6 +9,7 @@ public class PowerHardware extends  Hardware {
         super(HardwareEnum.POWER_HARDWARE,name, capacity, memory);
     }
 
+
     @Override
     protected  void calculateCapacity(int capacity) {
         int curentCapacity= capacity - ((capacity *3)/4);
@@ -18,6 +19,6 @@ public class PowerHardware extends  Hardware {
     @Override
     protected  void calculateMemory(int memory) {
         int currentMemory = memory  + ((memory  *3)/4);
-        this.setMaximumCapacity(currentMemory);
+        this.setMaximumMemory(currentMemory);
     }
 }
