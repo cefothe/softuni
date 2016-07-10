@@ -7,4 +7,5 @@ public class Configuration {
     public final static String  SYSTEM_SPLIT="SplitSystem Split";
     public final static String  HARDWARE="Hardware";
     public final static String  SOFTWARE="Software";
+    public final static String  SYSTEM_ANALYSIS="System Analysis";
 }

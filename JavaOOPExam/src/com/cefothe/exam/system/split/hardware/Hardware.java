@@ -44,6 +44,14 @@ public abstract class Hardware extends Component {
         return hardwareEnum;
     }
 
+    public int useCapacity(){
+        return softwares.stream().mapToInt(Software::getCapacityConsumption).sum();
+    }
+
+    public int useMomory(){
+        return softwares.stream().mapToInt(Software::getMemoryConsumption).sum();
+    }
+
     protected void setHardwareEnum(HardwareEnum hardwareEnum) {
         this.hardwareEnum = hardwareEnum;
     }
@@ -62,12 +70,11 @@ public abstract class Hardware extends Component {
         }
     }
 
+
     private boolean chechMemoryAndCapacity(Software software){
-        int currentCapacity = softwares.stream().mapToInt(Software::getCapacityConsumption).sum();
-        int currentMomory = softwares.stream().mapToInt(Software::getMemoryConsumption).sum();
             if( isExistSoftware(software.getName()) ||
-                currentCapacity+software.getCapacityConsumption()>maximumCapacity ||
-                currentMomory +software.getMemoryConsumption()>maximumMemory){
+                useCapacity()+software.getCapacityConsumption()>maximumCapacity ||
+                useMomory() +software.getMemoryConsumption()>maximumMemory){
             return false;
         }
         return true;
@@ -80,4 +87,8 @@ public abstract class Hardware extends Component {
         }
         return true;
      }
+
+    public int getNumberOfSoftware(){
+        return softwares.size();
+    }
 }

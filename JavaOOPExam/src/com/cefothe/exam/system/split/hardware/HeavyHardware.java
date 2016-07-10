@@ -12,13 +12,13 @@ public class HeavyHardware extends  Hardware {
 
     @Override
     protected void calculateMemory(int memory) {
-        int currentMemory = memory -(memory*1)/2;
+        int currentMemory = memory - ((memory*1)/4);
         this.setMaximumMemory(currentMemory);
     }
 
     @Override
     protected void calculateCapacity(int capacity) {
-        int currentCapacity= capacity - (capacity *1)/4;
+        int currentCapacity= capacity*2;
         this.setMaximumCapacity(currentCapacity);
     }
 }

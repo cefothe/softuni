@@ -11,9 +11,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.cefothe.exam.system.split.common.Configuration.HARDWARE;
-import static com.cefothe.exam.system.split.common.Configuration.SOFTWARE;
-import static com.cefothe.exam.system.split.common.Configuration.SYSTEM_SPLIT;
+import static com.cefothe.exam.system.split.common.Configuration.*;
 import static java.lang.System.in;
 
 public class Main {
@@ -36,19 +34,22 @@ public class Main {
 
     private static void parseCommand(String line, SplitSystem system) {
 
-        Pattern pattern = Pattern.compile("\\w+");
-        String[] comand = line.split("\\(");
-        Matcher matcher = pattern.matcher(comand[1]);
-        List<String> homeArgs = parseHomeArguments(comand[0], matcher);
+        if(line.contains("Analyze")){
+            system.systemAnalysis();
+        }else if(line.trim() != ""){
+            Pattern pattern = Pattern.compile("\\w+");
+            String[] comand = line.split("\\(");
+            Matcher matcher = pattern.matcher(comand[1]);
+            List<String> homeArgs = parseHomeArguments(comand[0], matcher);
 
-        if (line.contains(HARDWARE)) {
-            system.addHardware(HardwareFactory.F.createHardware(homeArgs));
-        } else if (line.contains(SOFTWARE)) {
-            Hardware hardware = system.getHardware(homeArgs.get(1));
-            if (hardware != null) {
-                hardware.addSoftware(SoftwareFactory.F.createSoftware(homeArgs));
+            if (line.contains(HARDWARE)) {
+                system.addHardware(HardwareFactory.F.createHardware(homeArgs));
+            } else if (line.contains(SOFTWARE)) {
+                Hardware hardware = system.getHardware(homeArgs.get(1));
+                if (hardware != null) {
+                    hardware.addSoftware(SoftwareFactory.F.createSoftware(homeArgs));
+                }
             }
-
         }
     }
 
