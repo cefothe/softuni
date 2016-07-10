@@ -4,6 +4,7 @@ import com.cefothe.exam.system.split.common.SystemInformation;
 import com.cefothe.exam.system.split.hardware.Hardware;
 import com.cefothe.exam.system.split.software.Software;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,24 +18,16 @@ import static com.cefothe.exam.system.split.common.Configuration.SYSTEM_ANALYSIS
 //TODO: This class should be Singelton
 public class SplitSystem {
 
-    private Set<Hardware> hardwares;
+    private List<Hardware> hardwares;
 
     public SplitSystem(){
-        hardwares = new HashSet<>();
+        hardwares = new ArrayList<>();
     }
 
     public void addHardware(Hardware hardware){
         if(!isHardwareExist(hardware.getName())){
             hardwares.add(hardware);
         }
-    }
-
-    private boolean isHardwareExist(String hardwareName){
-        List<Hardware> temp = hardwares.stream().filter(s->s.getName().equals(hardwareName)).collect(Collectors.toList());
-        if(temp.isEmpty()){
-            return false;
-        }
-        return true;
     }
 
     public Hardware getHardware(String hardwareName){
@@ -46,12 +39,44 @@ public class SplitSystem {
         return null;
     }
 
+    public void releaseSoftware(List<String> argumerns){
+        Hardware hardware =getHardware(argumerns.get(1));
+        if(hardware!=null){
+            hardware.releaseSoftware(argumerns.get(2));
+        }
+    }
+
     public void systemAnalysis(){
         System.out.println(SYSTEM_ANALYSIS);
+        mainInformation();
+        System.out.println();
+    }
+
+    public void systemSplit(){
+        mainInformation();
+        sortHardware();
+        printInformationForHardware();
+
+    }
+
+    protected  void mainInformation(){
         System.out.println("Hardware Components: "+ hardwares.size());
         System.out.println("Software Components: "+ calculateNumberOfSoftware());
         System.out.println("Total Operational Memory: "+calculateUseMemory()+" / "+calculateMaxMemory());
         System.out.println("Total Capacity Taken: "+calculateUseCapacity()+" / "+calculateMaxCapacity());
+    }
+    private boolean isHardwareExist(String hardwareName){
+        List<Hardware> temp = hardwares.stream().filter(s->s.getName().equals(hardwareName)).collect(Collectors.toList());
+        if(temp.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
+    private void printInformationForHardware() {
+        for(Hardware hardare: hardwares){
+            hardare.printInformation();
+        }
     }
 
     private int calculateMaxCapacity(){
@@ -75,5 +100,16 @@ public class SplitSystem {
         return  number;
     }
 
+    private void sortHardware(){
+        hardwares = hardwares.stream().sorted((first, second)->{
+            int result = 0;
+            if(first.getHardwareEnum().getOrder()<second.getHardwareEnum().getOrder()){
+                result =0;
+            }else{
+                result =1;
+            }
+            return result;
+        }).collect(Collectors.toList());
+    }
 
 }

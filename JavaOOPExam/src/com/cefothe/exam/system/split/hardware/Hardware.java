@@ -2,10 +2,9 @@ package com.cefothe.exam.system.split.hardware;
 
 import com.cefothe.exam.system.split.common.Component;
 import com.cefothe.exam.system.split.software.Software;
+import com.cefothe.exam.system.split.software.SoftwareEnum;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -52,6 +51,36 @@ public abstract class Hardware extends Component {
         return softwares.stream().mapToInt(Software::getMemoryConsumption).sum();
     }
 
+    public void addSoftware(Software software){
+        if(chechMemoryAndCapacity(software)) {
+            softwares.add(software);
+        }
+    }
+    public int getNumberOfSoftware(){
+        return softwares.size();
+    }
+
+    public int getNumberExpress(){
+        return softwares.stream().filter(f->f.getSoftwareEnum().equals(SoftwareEnum.EXPRESS_SOFTWARE)).collect(Collectors.toList()).size();
+    }
+
+    public int getNumberLight(){
+        return softwares.stream().filter(f->f.getSoftwareEnum().equals(SoftwareEnum.EXPRESS_SOFTWARE)).collect(Collectors.toList()).size();
+    }
+
+    public void printInformation(){
+        System.out.println("Type - "+this.getHardwareEnum().getName());
+        System.out.println("Software Components: " + namesOfList().toString().replace("[","").replace("]",""));
+        System.out.println("Hardware Component - "+ this.getName());
+        System.out.println("Express Software Components - "+getNumberExpress());
+        System.out.println("Express Software Components - "+getNumberLight());
+        System.out.println("Memory Usage: "+useMomory()+" / "+getMaximumMemory());
+        System.out.println("Capacity Usage: "+useCapacity()+" / "+getMaximumCapacity());
+    }
+
+    protected  List<String> namesOfList(){
+            return softwares.stream().map(Software::getName).collect(Collectors.toList());
+    }
     protected void setHardwareEnum(HardwareEnum hardwareEnum) {
         this.hardwareEnum = hardwareEnum;
     }
@@ -63,13 +92,6 @@ public abstract class Hardware extends Component {
     protected void setMaximumMemory(int maximumMemory) {
         this.maximumMemory = maximumMemory;
     }
-
-    public void addSoftware(Software software){
-        if(chechMemoryAndCapacity(software)) {
-            softwares.add(software);
-        }
-    }
-
 
     private boolean chechMemoryAndCapacity(Software software){
             if( isExistSoftware(software.getName()) ||
@@ -88,7 +110,13 @@ public abstract class Hardware extends Component {
         return true;
      }
 
-    public int getNumberOfSoftware(){
-        return softwares.size();
+
+    public void releaseSoftware(String nameOfSofware) {
+        for (Iterator<Software> i = softwares.iterator(); i.hasNext();) {
+            Software element = i.next();
+            if (element.getName().equals(nameOfSofware)) {
+                i.remove();
+            }
+        }
     }
 }

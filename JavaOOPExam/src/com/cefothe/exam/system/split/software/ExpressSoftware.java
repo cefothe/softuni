@@ -11,11 +11,12 @@ public class ExpressSoftware extends  Software {
 
     @Override
     protected void calculateMemory(int memory) {
-
+        int currentMemory = memory *2;
+        setMemoryConsumption(currentMemory);
     }
 
     @Override
     protected void calculateCapacity(int capacity) {
-
+        setCapacityConsumption(capacity);
     }
 }

@@ -5,16 +5,22 @@ package com.cefothe.exam.system.split.hardware;
  */
 public enum  HardwareEnum {
 
-    POWER_HARDWARE("power"),HEAVY_HARDWARE("heavy");
+    POWER_HARDWARE("Power",1),HEAVY_HARDWARE("Heavy",2);
 
     private String name;
+    private int order;
 
-    HardwareEnum(String name) {
+    HardwareEnum(String name, int order) {
         this.name = name;
+        this.order = order;
     }
 
     public String getName() {
         return name;
+    }
+
+    public  int getOrder(){
+        return  order;
     }
 
     public static HardwareEnum getEnumeration(String name){

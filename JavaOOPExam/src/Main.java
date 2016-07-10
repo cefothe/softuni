@@ -30,19 +30,24 @@ public class Main {
         while (!(line = reader.readLine()).equals(SYSTEM_SPLIT)) {
             parseCommand(line, system);
         }
+        system.systemSplit();
     }
 
     private static void parseCommand(String line, SplitSystem system) {
 
         if(line.contains("Analyze")){
             system.systemAnalysis();
-        }else if(line.trim() != ""){
+        }
+        else if(line.trim() != ""){
             Pattern pattern = Pattern.compile("\\w+");
             String[] comand = line.split("\\(");
             Matcher matcher = pattern.matcher(comand[1]);
             List<String> homeArgs = parseHomeArguments(comand[0], matcher);
 
-            if (line.contains(HARDWARE)) {
+            if(line.contains(RELEASE_SOFTWARE)){
+                system.releaseSoftware(homeArgs);
+            }
+            else if (line.contains(HARDWARE)) {
                 system.addHardware(HardwareFactory.F.createHardware(homeArgs));
             } else if (line.contains(SOFTWARE)) {
                 Hardware hardware = system.getHardware(homeArgs.get(1));
