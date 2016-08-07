@@ -31,4 +31,6 @@ public class Constants {
     public static final String INPUT_SPLIT_COMMAND = " ";
     public static final String INPUT_SPLIT_ARGUMENTS = "\\|";
 
+    public static  final String WASTE_TO_STRING = "%.2f kg of %s successfully processed!";
+
 }

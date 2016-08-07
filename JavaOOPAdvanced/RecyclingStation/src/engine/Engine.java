@@ -6,10 +6,17 @@ import command.CommandInterpreter;
 import command.interfaces.Command;
 import command.interfaces.CommandDispatcher;
 import core.constants.Constants;
+import framework.waste.disposal.DefaultGarbageProcessor;
+import framework.waste.disposal.MapperStrategyHolder;
+import framework.waste.disposal.contracts.GarbageProcessor;
+import framework.waste.disposal.contracts.StrategyHolder;
 import io.reader.ConsoleReader;
 import io.reader.Reader;
 import io.writer.ConsoleWriter;
 import io.writer.Writer;
+import provider.DataProvider;
+import provider.WasteProvider;
+
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -27,10 +34,19 @@ public class Engine implements EngineInterface {
 
     private CommandDispatcher commandInterpreter;
 
+    private DataProvider dataProvider;
+
+    private StrategyHolder strategyHolder;
+
+    private GarbageProcessor garbageProcessor;
+
     public Engine(){
         this.consoleReader = new ConsoleReader();
         this.consoleWriter = new ConsoleWriter();
-        this.commandInterpreter = new CommandInterpreter();
+        this.dataProvider = new WasteProvider();
+        this.commandInterpreter = new CommandInterpreter(this.dataProvider);
+        this.strategyHolder = new MapperStrategyHolder();
+        this.garbageProcessor = new DefaultGarbageProcessor(this.strategyHolder);
     }
 
     @Override
@@ -62,7 +78,7 @@ public class Engine implements EngineInterface {
         }
         try {
             Command comand = commandInterpreter.dispatchCommand(commandName, commandArgs);
-            comand.execute();
+            this.consoleWriter.writeLine(comand.execute());
         } catch (NoSuchMethodException |IllegalAccessException |InvocationTargetException|InstantiationException e) {
           throw  new IllegalArgumentException("Invalid input");
         }

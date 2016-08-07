@@ -1,6 +1,8 @@
 package core.model;
 
 
+import command.interfaces.Command;
+import core.constants.Constants;
 import framework.waste.disposal.contracts.Waste;
 
 /**
@@ -44,5 +46,14 @@ public abstract class WasteAbstract implements Waste {
 
     protected void setVolumePerKg(double volumePerKg) {
         this.volumePerKg = volumePerKg;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                Constants.WASTE_TO_STRING,
+                getWeight(),
+                getName()
+        );
     }
 }
