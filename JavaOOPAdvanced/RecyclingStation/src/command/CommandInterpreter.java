@@ -5,6 +5,7 @@ import command.interfaces.Command;
 import command.interfaces.CommandDispatcher;
 import framework.waste.disposal.contracts.StrategyHolder;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -15,8 +16,8 @@ public class CommandInterpreter  implements CommandDispatcher{
 
     @Override
     public Command dispatchCommand(String commandName, String[] arguments) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Class<? extends  Command> comand = ComandEnumeration.valueOf(commandName).getCommandClass();
+        Class<? extends  Command> comand = ComandEnumeration.getEnumByCommandName(commandName).getCommandClass();
         Constructor<? extends Command> constructor = comand.getConstructor(String[].class);
-        return constructor.newInstance(arguments);
+        return constructor.newInstance((Object)arguments);
     }
 }

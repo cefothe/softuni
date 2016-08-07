@@ -25,4 +25,13 @@ public enum ComandEnumeration {
     public Class<? extends Command> getCommandClass(){
       return  this.commandClass;
     }
+
+    public static ComandEnumeration getEnumByCommandName(String commandName){
+        for(ComandEnumeration e:values()){
+            if(e.getCommandName().equals(commandName)){
+                return e;
+            }
+        }
+        throw  new IllegalArgumentException("No enum constant with commandName"+ commandName);
+    }
 }

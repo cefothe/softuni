@@ -26,4 +26,9 @@ public class Constants {
     public static final double  STORABLE_GARBAGE_CAPITAL_USED = 0.65d;
 
 
+
+    public static final String  TERMINATE ="TimeToRecycle";
+    public static final String INPUT_SPLIT_COMMAND = " ";
+    public static final String INPUT_SPLIT_ARGUMENTS = "\\|";
+
 }
