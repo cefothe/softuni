@@ -1,6 +1,7 @@
 package command;
 
 import command.interfaces.Command;
+import framework.waste.disposal.contracts.GarbageProcessor;
 import provider.DataProvider;
 
 /**
@@ -8,11 +9,13 @@ import provider.DataProvider;
  */
 public abstract class AbstactComand implements Command {
     protected DataProvider dataProvider;
+    protected GarbageProcessor garbageProcessor;
     protected String[] args;
 
-    protected AbstactComand(String [] args, DataProvider dataProvider){
+    protected AbstactComand(String [] args, DataProvider dataProvider, GarbageProcessor garbageProcessor){
         setArgs(args);
         setDataProvider(dataProvider);
+        setGarbageProcessor(garbageProcessor);
     }
 
     protected String[] getArgs() {
@@ -28,6 +31,9 @@ public abstract class AbstactComand implements Command {
 
     }
 
+    private void setGarbageProcessor(GarbageProcessor garbageProcessor) {
+        this.garbageProcessor = garbageProcessor;
+    }
     private void setDataProvider(DataProvider dataProvider) {
         this.dataProvider = dataProvider;
     }

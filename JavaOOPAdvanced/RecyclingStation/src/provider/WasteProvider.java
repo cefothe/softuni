@@ -29,7 +29,7 @@ public class WasteProvider implements DataProvider {
     }
 
     @Override
-    public Iterable<Waste> getShopProducts() {
-        return null;
+    public List<Waste> getShopProducts() {
+        return this.wastes ;
     }
 }

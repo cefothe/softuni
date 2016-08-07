@@ -1,5 +1,6 @@
 package framework.waste.disposal.to;
 
+import core.constants.Constants;
 import framework.waste.disposal.contracts.ProcessingData;
 
 /**
@@ -33,5 +34,14 @@ public class TranferObject implements ProcessingData {
     @Override
     public double getCapitalBalance() {
         return this.capitalBalance;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                Constants.TRANFER_OBJECT,
+                getEnergyBalance(),
+                getCapitalBalance()
+        );
     }
 }

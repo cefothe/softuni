@@ -33,4 +33,6 @@ public class Constants {
 
     public static  final String WASTE_TO_STRING = "%.2f kg of %s successfully processed!";
 
+    public static final String TRANFER_OBJECT = "Energy: %.2f Capital: %.2f";
+
 }

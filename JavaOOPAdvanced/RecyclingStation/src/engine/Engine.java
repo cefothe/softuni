@@ -44,9 +44,9 @@ public class Engine implements EngineInterface {
         this.consoleReader = new ConsoleReader();
         this.consoleWriter = new ConsoleWriter();
         this.dataProvider = new WasteProvider();
-        this.commandInterpreter = new CommandInterpreter(this.dataProvider);
         this.strategyHolder = new MapperStrategyHolder();
         this.garbageProcessor = new DefaultGarbageProcessor(this.strategyHolder);
+        this.commandInterpreter = new CommandInterpreter(this.dataProvider,this.garbageProcessor);
     }
 
     @Override

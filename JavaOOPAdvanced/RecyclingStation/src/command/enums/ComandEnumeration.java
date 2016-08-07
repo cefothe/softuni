@@ -1,6 +1,7 @@
 package command.enums;
 
 import command.ProcessGarbageCommand;
+import command.StatusCommand;
 import command.interfaces.Command;
 
 /**
@@ -8,7 +9,8 @@ import command.interfaces.Command;
  */
 public enum ComandEnumeration {
 
-    PROCESS_GARBAGE("ProcessGarbage", ProcessGarbageCommand.class);
+    PROCESS_GARBAGE("ProcessGarbage", ProcessGarbageCommand.class),
+    STATUS("Status",StatusCommand.class);
 
     private String commandName;
     private Class<? extends Command> commandClass;

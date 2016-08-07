@@ -2,6 +2,7 @@ package command;
 
 import command.interfaces.Command;
 import core.model.TypeGarbage;
+import framework.waste.disposal.contracts.GarbageProcessor;
 import framework.waste.disposal.contracts.ProcessingData;
 import framework.waste.disposal.contracts.Waste;
 import provider.DataProvider;
@@ -14,8 +15,8 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class ProcessGarbageCommand extends  AbstactComand {
 
-    public ProcessGarbageCommand(String[] args, DataProvider dataProvider){
-        super(args,dataProvider);
+    public ProcessGarbageCommand(String[] args, DataProvider dataProvider, GarbageProcessor garbageProcessor){
+        super(args,dataProvider,garbageProcessor);
     }
 
     @Override
