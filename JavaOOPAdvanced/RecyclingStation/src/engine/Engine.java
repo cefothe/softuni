@@ -20,6 +20,7 @@ public class Engine implements EngineInterface {
 
     private Boolean isRunning;
 
+
     public Engine(){
         this.consoleReader = new ConsoleReader();
         this.consoleWriter = new ConsoleWriter();

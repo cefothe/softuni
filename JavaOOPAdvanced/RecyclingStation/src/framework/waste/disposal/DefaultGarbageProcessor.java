@@ -12,10 +12,6 @@ public class DefaultGarbageProcessor implements GarbageProcessor {
         this.setStrategyHolder(strategyHolder);
     }
 
-    public DefaultGarbageProcessor(){
-        this(new DefaultStrategyHolder());
-    }
-
     private void setStrategyHolder(StrategyHolder strategyHolder) {
         this.strategyHolder = strategyHolder;
     }
