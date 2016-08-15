@@ -23,7 +23,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HelloWorld.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HelloWorld.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cefothe/servlets/HelloWorld.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -33,6 +33,16 @@
                 <element signature="e#453#454#0" expanded="true" />
                 <element signature="e#476#477#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DynamicContent.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/cefothe/servlets/DynamicContent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,6 +65,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/cefothe/servlets/HelloWorld.java" />
+        <option value="$PROJECT_DIR$/src/com/cefothe/servlets/DynamicContent.java" />
       </list>
     </option>
   </component>
@@ -658,12 +669,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1471259145115</updated>
-      <workItem from="1471259150018" duration="1766000" />
+      <workItem from="1471259150018" duration="2423000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1766000" />
+    <option name="totallyTimeSpent" value="2423000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="738" extended-state="6" />
@@ -730,6 +741,14 @@
             <element signature="e#453#454#0" expanded="true" />
             <element signature="e#476#477#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cefothe/servlets/DynamicContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
