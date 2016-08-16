@@ -25,8 +25,21 @@ public class HelloWorld extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        //Append values to response
         resp.getWriter().append("Served at: ").append(req.getContextPath());
         resp.getWriter().println();
         resp.getWriter().append(LocalDateTime.now().toString());
+
+
+        resp.getWriter().println();
+
+        //get attribute "COUNTER" from session
+        Integer count= (Integer) req.getSession().getAttribute("COUNTER");
+
+        if(count==null){
+            count = 0;
+        }
+
     }
 }
