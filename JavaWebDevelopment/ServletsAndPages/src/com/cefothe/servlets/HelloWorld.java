@@ -40,6 +40,8 @@ public class HelloWorld extends HttpServlet {
         if(count==null){
             count = 0;
         }
-
+        
+        // Return counter to response
+        resp.getWriter().append(count.toString());
     }
 }
