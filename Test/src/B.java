@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 class B {
     public static void main(String[] args) {
-        char c ='\u0000';
 
-        System.out.print(c==0);
     }
 }
