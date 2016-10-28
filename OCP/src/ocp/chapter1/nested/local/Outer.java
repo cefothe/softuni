@@ -18,5 +18,8 @@ public class Outer {
         inner.multiply();
     }
 
-    
+    public static void main(String[] args) {
+        new Outer().calculate();
+    }
+
 }

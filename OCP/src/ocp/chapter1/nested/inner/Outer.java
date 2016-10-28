@@ -6,7 +6,7 @@ package ocp.chapter1.nested.inner;
 public class Outer {
     private String greeting = "Hi";
 
-    protected final class Inner{
+    public final class Inner{
 
         public int repeat =3;
 
