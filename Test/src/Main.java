@@ -11,7 +11,7 @@ import java.util.List;
  * Created by stefanangelov on 7/15/16.
  */
 
-public class Main {
+class Main {
 
 
     public static void main(String[] args) {
