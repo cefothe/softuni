@@ -9,8 +9,7 @@ public class TestConnection {
     private static final String PASSWORD = "s73f@n";
 
     public static void main(String[] args) {
-        try{
-            Connection connection = DriverManager.getConnection(URL,USER,PASSWORD);
+        try(Connection connection = DriverManager.getConnection(URL,USER,PASSWORD)){
             System.out.println("Susscess connections");
         } catch (SQLException e) {
             e.printStackTrace();

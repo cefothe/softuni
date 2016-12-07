@@ -19,7 +19,7 @@ public class JDBCTransactions {
             connection.setAutoCommit(false);
             Statement statement = connection.createStatement();
             String query ="INSERT INTO students (id,name) "+
-                    "VALUES (15,'TEST')";
+                    "VALUES (10,'TEST')";
             statement.execute(query);
             connection.commit();
         } catch (SQLException e) {
@@ -28,6 +28,7 @@ public class JDBCTransactions {
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
+            e.printStackTrace();
         }
     }
 }
