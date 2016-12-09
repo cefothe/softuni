@@ -1,0 +1,21 @@
+package app.services;
+
+import app.domain.User;
+import app.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * Created by cefothe on 10.12.16.
+ */
+@Service
+public class UserServiceImp implements  UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public void createUser(User user) {
+        userRepository.saveAndFlush(user);
+    }
+}
