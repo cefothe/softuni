@@ -17,7 +17,7 @@ public class Address {
     @Column(name = "address_text")
     private String addressText;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "town_id")
     private Town town;
 
