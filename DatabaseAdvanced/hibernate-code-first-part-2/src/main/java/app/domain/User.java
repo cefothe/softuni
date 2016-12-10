@@ -32,7 +32,7 @@ public class User implements Serializable{
     private String email;
 
     @Column(name = "profile_picture", columnDefinition = "LONGBLOB")
-    private Byte[] profilePicture;
+    private byte[] profilePicture;
 
     @Column(name= "registered_on")
     private Date registeredOn;
@@ -85,12 +85,12 @@ public class User implements Serializable{
         this.email = email;
     }
 
-    public Byte[] getProfilePicture() {
+    public byte[] getProfilePicture() {
         return profilePicture;
     }
 
-    public void setProfilePicture(Byte[] profilePicture) {
-        if(profilePicture.length> 1024*1024*1024){
+    public void setProfilePicture(byte[] profilePicture) {
+        if(profilePicture.length> 1024*1024){
             throw  new IllegalArgumentException();
         }
         this.profilePicture = profilePicture;
