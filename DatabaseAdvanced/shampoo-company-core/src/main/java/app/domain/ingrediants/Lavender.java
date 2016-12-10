@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  */
 
 @Entity
-//@DiscriminatorValue(value = "lavender")
+@DiscriminatorValue(value = "lavender")
 public class Lavender extends  BasicIngredient {
 
     private static  final String NAME= "Lavender";

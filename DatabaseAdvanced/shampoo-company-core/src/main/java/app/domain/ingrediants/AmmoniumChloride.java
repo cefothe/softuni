@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * Created by cefothe on 10.12.16.
  */
 @Entity
-//@DiscriminatorValue(value = "ammoniumChloride")
+@DiscriminatorValue(value = "ammoniumChloride")
 public class AmmoniumChloride extends  BasicChemicalIngrediant {
 
     private static  final String NAME= "Ammonium Chloride";

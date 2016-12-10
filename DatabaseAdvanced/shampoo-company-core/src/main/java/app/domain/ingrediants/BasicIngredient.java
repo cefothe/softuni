@@ -7,13 +7,13 @@ import java.math.BigDecimal;
  * Created by cefothe on 10.12.16.
  */
 @Entity
-//@Table(name = "ingredients")
-@Inheritance(strategy = InheritanceType.JOINED)
-//@DiscriminatorColumn(name = "ingredient_type",discriminatorType = DiscriminatorType.STRING)
+@Table(name = "ingredients")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "ingredient_type",discriminatorType = DiscriminatorType.STRING)
 public abstract class BasicIngredient  implements  Ingrediant{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Basic
