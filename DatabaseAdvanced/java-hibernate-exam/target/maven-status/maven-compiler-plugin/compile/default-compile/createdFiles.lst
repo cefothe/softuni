@@ -1,0 +1,10 @@
+app/io/interfaces/ConsoleIO.class
+app/parser/ModelParserImpl.class
+app/parser/interfaces/ModelParser.class
+app/io/interfaces/FileIO.class
+app/io/FIleIOImpl.class
+app/parser/XMLParser.class
+app/MainApplication.class
+app/parser/interfaces/FileParser.class
+app/parser/JSONParser.class
+app/io/ConsoleIOImpl.class
