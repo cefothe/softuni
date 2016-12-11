@@ -18,21 +18,29 @@ public class Lens extends EntityAdapter {
     @Column(name = "focal_lenght")
     private int focalLength;
 
+    @Column(name = "max_aperture")
+    private double  maxAperture;
+
     @Column(name = "compatible_with")
     private String compatibleWith;
 
-    @ManyToOne
-    @JoinColumn(name = "protographer_id",referencedColumnName = "id")
-    private Photographer photographer;
 
     public Lens() {
     }
-
-    public Lens(String make, int focalLength, String compatibleWith, Photographer photographer) {
+    public Lens(String make, int focalLength, double maxAperture, String compatibleWith) {
         this.make = make;
         this.focalLength = focalLength;
+        this.maxAperture = maxAperture;
         this.compatibleWith = compatibleWith;
-        this.photographer = photographer;
+
+    }
+
+    public double getMaxAperture() {
+        return maxAperture;
+    }
+
+    public void setMaxAperture(double maxAperture) {
+        this.maxAperture = maxAperture;
     }
 
     public String getMake() {
@@ -59,11 +67,8 @@ public class Lens extends EntityAdapter {
         this.compatibleWith = compatibleWith;
     }
 
-    public Photographer getPhotographer() {
-        return photographer;
-    }
-
-    public void setPhotographer(Photographer photographer) {
-        this.photographer = photographer;
+    @Override
+    public String toString() {
+        return getMake() + getFocalLength()+"mm f" +getMaxAperture();
     }
 }

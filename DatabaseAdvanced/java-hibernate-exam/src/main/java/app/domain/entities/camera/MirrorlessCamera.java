@@ -43,4 +43,9 @@ public class MirrorlessCamera extends Camera{
     public void setMaxFrameRate(int maxFrameRate) {
         this.maxFrameRate = maxFrameRate;
     }
+
+    @Override
+    public String toString() {
+        return "Mirrorless "+ super.toString();
+    }
 }

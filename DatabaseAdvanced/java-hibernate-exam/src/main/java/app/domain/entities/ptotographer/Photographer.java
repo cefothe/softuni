@@ -7,6 +7,7 @@ import app.domain.entities.common.EntityAdapter;
 import app.domain.entities.workshop.Workshop;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -25,15 +26,13 @@ public class Photographer extends EntityAdapter {
     @Basic
     private String phone;
 
-    @OneToOne
-    @JoinColumn(name = "primary_camera_id", referencedColumnName = "id", nullable = false)
+    @ManyToOne
     private Camera primaryCamera;
 
-    @OneToOne
-    @JoinColumn(name = "secondary_camera_id", referencedColumnName = "id" , nullable = false)
+    @ManyToOne
     private Camera secondaryCamera;
 
-    @OneToMany(mappedBy = "id", targetEntity = Lens.class)
+    @ManyToMany
     private Set<Lens> lenses;
 
     @OneToMany(mappedBy = "id", targetEntity = Accessory.class)
@@ -47,10 +46,15 @@ public class Photographer extends EntityAdapter {
 
 
     public Photographer() {
+        this.lenses= new HashSet<>();
+        this.accessories = new HashSet<>();
+        this.workshops = new HashSet<>();
+        this.trainerWorkshops = new HashSet<>();
     }
 
     public Photographer(String firstName, String lastName, String phone, Camera primaryCamera,
                         Camera secondaryCamera, Set<Lens> lenses, Set<Accessory> accessories) {
+        this();
         this.setFirstName(firstName);
         this.setLastName(lastName);
         this.setPhone(phone);
@@ -85,9 +89,7 @@ public class Photographer extends EntityAdapter {
 
     public void setPhone(String phone) {
         if(!(phone!= null && phone.matches("\\+[0-9]{1,3}\\/[0-9]{8,10}"))){
-            throw  new IllegalArgumentException("Phone – must be in the format “+[country_code]/[phone]”" +
-                    " where [country_code] is between 1 and 3 digits and the [phone]" +
-                    " is between 8 and 10 digits");
+            this.phone = null;
         }
         this.phone = phone;
     }
@@ -122,5 +124,10 @@ public class Photographer extends EntityAdapter {
 
     public void setAccessories(Set<Accessory> accessories) {
         this.accessories = accessories;
+    }
+
+    @Override
+    public String toString() {
+        return this.getFirstName() + " " +this.getLastName() + "| Lenses:"+ this.getLenses().size();
     }
 }

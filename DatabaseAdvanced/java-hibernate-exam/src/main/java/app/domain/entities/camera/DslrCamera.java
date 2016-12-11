@@ -29,4 +29,9 @@ public class DslrCamera extends  Camera {
     public void setMaxShutterSpeed(int maxShutterSpeed) {
         this.maxShutterSpeed = maxShutterSpeed;
     }
+
+    @Override
+    public String toString() {
+        return "DSLR "+ super.toString();
+    }
 }

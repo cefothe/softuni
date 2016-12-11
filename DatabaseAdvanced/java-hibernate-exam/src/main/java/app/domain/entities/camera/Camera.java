@@ -82,5 +82,8 @@ public abstract class Camera extends EntityAdapter {
         this.make = make;
     }
 
-
+    @Override
+    public String toString() {
+        return this.getMake() +" "+ this.getModel();
+    }
 }
