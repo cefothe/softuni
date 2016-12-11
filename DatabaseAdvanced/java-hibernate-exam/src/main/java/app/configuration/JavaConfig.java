@@ -1,5 +1,6 @@
 package app.configuration;
 
+import app.domain.factory.AccessoryFactory;
 import app.domain.factory.CameraFactory;
 import app.domain.factory.PhotographerFactory;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +19,11 @@ public class JavaConfig {
     @Bean
     public PhotographerFactory photographerFactory(){
         return new PhotographerFactory();
+    }
+
+    @Bean
+    public AccessoryFactory accessoryFactory(){
+        return  new AccessoryFactory();
     }
 
 }

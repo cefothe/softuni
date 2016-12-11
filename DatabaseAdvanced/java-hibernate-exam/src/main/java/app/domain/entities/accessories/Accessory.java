@@ -42,4 +42,9 @@ public class Accessory extends EntityAdapter{
     public void setOwner(Photographer owner) {
         this.owner = owner;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

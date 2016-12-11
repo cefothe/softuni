@@ -11,4 +11,6 @@ public final class Configuration {
 
     public static final String ACCESSORIES_XML_INPUT="/files/xml/input/accessories.xml";
 
+    public static final String PHOTOGRAPHERS_JSON_EXPORT ="src/main/resources/files/json/output/photographers-ordered.json";
+
 }

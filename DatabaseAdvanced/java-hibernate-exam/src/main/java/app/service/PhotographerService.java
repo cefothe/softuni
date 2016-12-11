@@ -2,6 +2,7 @@ package app.service;
 
 import app.domain.dto.json.PhotographerDTO;
 import app.domain.entities.camera.Camera;
+import app.domain.entities.ptotographer.Photographer;
 
 import java.util.List;
 
@@ -10,4 +11,6 @@ import java.util.List;
  */
 public interface PhotographerService {
     void create(PhotographerDTO photographerDTO,List<Camera> cameras);
+    List<Photographer> findAll();
+    List<PhotographerDTO> findAllOrderByFirstNameAndLastName();
 }

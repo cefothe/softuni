@@ -17,4 +17,12 @@ public class AccessoryDTO {
 
     public AccessoryDTO() {
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

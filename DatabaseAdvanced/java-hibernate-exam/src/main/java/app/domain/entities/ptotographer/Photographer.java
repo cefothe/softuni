@@ -35,7 +35,7 @@ public class Photographer extends EntityAdapter {
     @ManyToMany
     private Set<Lens> lenses;
 
-    @OneToMany(mappedBy = "id", targetEntity = Accessory.class)
+    @OneToMany
     private Set<Accessory> accessories;
 
     @ManyToMany(mappedBy = "photographers", targetEntity = Workshop.class)
