@@ -11,7 +11,7 @@ public class FIleIOImpl implements FileIO {
 
     @Override
     public String read(String file) throws IOException {
-        StringBuilder fileContent = new StringBuilder();
+            StringBuilder fileContent = new StringBuilder();
         try (
                 InputStream inputStream = getClass().getResourceAsStream(file);
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))
