@@ -1,0 +1,11 @@
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/parser/JSONParser.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/parser/XMLParser.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/parser/interfaces/ModelParser.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/io/ConsoleIOImpl.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/io/interfaces/FileIO.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/io/FIleIOImpl.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/io/interfaces/ConsoleIO.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/MainApplication.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/parser/ModelParser.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/parser/interfaces/FileParser.java
+/home/cefothe/workspace/softuni/DatabaseAdvanced/java-hibernate-exam/src/main/java/app/parser/ModelParserImpl.java
