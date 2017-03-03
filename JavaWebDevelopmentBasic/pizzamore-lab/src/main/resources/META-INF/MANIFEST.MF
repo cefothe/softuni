@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.pizza.lab.models.pages.SignUp
+Main-Class: com.pizza.lab.models.pages.Home
 

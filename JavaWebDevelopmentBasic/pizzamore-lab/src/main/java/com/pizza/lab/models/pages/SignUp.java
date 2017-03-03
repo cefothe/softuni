@@ -1,7 +1,7 @@
 package com.pizza.lab.models.pages;
 
 import com.pizza.lab.models.header.Header;
-import com.pizza.lab.models.user.User;
+import com.pizza.lab.models.entities.User;
 import com.pizza.lab.repository.UserRepository;
 import com.pizza.lab.utils.WebUtils;
 
