@@ -7,6 +7,7 @@
     <groupId>com.cefothe</groupId>
     <artifactId>servlets-lecture</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!--<packaging>war</packaging>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,6 +16,14 @@
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+            <scope>compile</scope>
+        </dependency>
+
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -22,7 +31,19 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <finalName>servlets</finalName>
-    </build>
+    <!--<build>-->
+        <!--<finalName>servlet</finalName>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>3.0.0</version>-->
+                <!--<configuration>-->
+                    <!--<archive>-->
+                        <!--<addMavenDescriptor>false</addMavenDescriptor>-->
+                    <!--</archive>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 </project>

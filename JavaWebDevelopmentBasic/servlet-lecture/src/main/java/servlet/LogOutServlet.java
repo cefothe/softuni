@@ -1,5 +1,6 @@
 package servlet;
 
+import javax.mail.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,13 +13,16 @@ import java.io.PrintWriter;
 /**
  * Created by cefothe on 04.03.17.
  */
-@WebServlet("/getsession")
-public class PrintBeerServlet extends HttpServlet {
+
+@WebServlet("/logout")
+public class LogOutServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter printWriter = resp.getWriter();
         HttpSession session = req.getSession();
-        printWriter.println(session.getAttribute("username"));
+        session.invalidate();
+
+        PrintWriter pw = resp.getWriter();
+        pw.println("Session invalid");
     }
 }
