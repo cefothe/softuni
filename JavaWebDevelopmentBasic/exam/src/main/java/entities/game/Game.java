@@ -2,19 +2,24 @@ package entities.game;
 
 import entities.common.BaseEntityAdapter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import static entities.game.Game.FIND_ALL_GAMES;
+
 /**
  * Created by cefothe on 05.03.17.
  */
+@NamedQueries({
+        @NamedQuery(name =FIND_ALL_GAMES , query = "SELECT g from Game g"),
+})
 @Entity
 @Table(name="games")
 public class Game extends BaseEntityAdapter implements Serializable{
+
+    public static final String FIND_ALL_GAMES ="findAllGames";
 
     private String title;
 
@@ -22,7 +27,7 @@ public class Game extends BaseEntityAdapter implements Serializable{
 
     private String imageThumbnail;
 
-    private double size;
+    private Double size;
 
     private BigDecimal price;
 
@@ -42,7 +47,7 @@ public class Game extends BaseEntityAdapter implements Serializable{
         this.releaseDate = releaseDate;
     }
 
-    protected Game(){
+    public Game(){
 
     }
 
@@ -72,5 +77,33 @@ public class Game extends BaseEntityAdapter implements Serializable{
 
     public Date getReleaseDate() {
         return releaseDate;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public void setImageThumbnail(String imageThumbnail) {
+        this.imageThumbnail = imageThumbnail;
+    }
+
+    public void setSize(Double size) {
+        this.size = size;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 }

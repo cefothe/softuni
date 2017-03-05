@@ -26,7 +26,7 @@
                 Admin
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Games</a>
+                <a class="dropdown-item" href="/game/all">Games</a>
             </div>
         </li>
 

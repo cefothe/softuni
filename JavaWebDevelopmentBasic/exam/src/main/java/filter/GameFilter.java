@@ -3,6 +3,7 @@ package filter;
 import common.ApplicationUser;
 import services.interfaces.AuthorizationService;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -15,6 +16,7 @@ import java.io.IOException;
  * Created by cefothe on 05.03.17.
  */
 @WebFilter("/game/*")
+@Stateless
 public class GameFilter implements Filter {
 
     @Inject
@@ -32,8 +34,9 @@ public class GameFilter implements Filter {
         ApplicationUser applicationUser =authorizationService.typeOfUser(session);
         if(!ApplicationUser.ADMIN.equals(applicationUser)){
             ((HttpServletResponse)servletResponse).sendRedirect("/login");
+        }else{
+            filterChain.doFilter(servletRequest, servletResponse);
         }
-        filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override

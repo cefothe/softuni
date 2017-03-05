@@ -12,7 +12,14 @@
             <div class="col-12">
                 <div class="text-center"><h1 class="display-3">Add Game</h1></div>
                 <br/>
-                <form>
+                <c:forEach items="${constraintViolations}" var="violation">
+                    <div class="alert alert-danger alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error!</strong> ${violation.getMessage()}
+                    </div>
+                </c:forEach>
+
+                <form method="post">
                     <div class="form-group row">
                         <label class="form-control-label">Title</label>
                         <input pattern="[A-Z].{3,100}" class="form-control"
