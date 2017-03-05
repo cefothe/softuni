@@ -1,10 +1,10 @@
 package entities.game;
 
+
 import entities.common.BaseEntityAdapter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 import static entities.game.Game.FIND_ALL_GAMES;
@@ -37,7 +37,7 @@ public class Game extends BaseEntityAdapter implements Serializable{
     @Column(updatable = false)
     private Date releaseDate;
 
-    public Game(String title, String trailer, String imageThumbnail, double size, BigDecimal price, String description, Date releaseDate) {
+    public Game(String title, String trailer, String imageThumbnail, Double size, Double price, String description, Date releaseDate) {
         this.title = title;
         this.trailer = trailer;
         this.imageThumbnail = imageThumbnail;
@@ -47,60 +47,59 @@ public class Game extends BaseEntityAdapter implements Serializable{
         this.releaseDate = releaseDate;
     }
 
-    public Game(){
-
+    public Game() {
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getTrailer() {
-        return trailer;
-    }
-
-    public String getImageThumbnail() {
-        return imageThumbnail;
-    }
-
-    public double getSize() {
-        return size;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getTrailer() {
+        return trailer;
     }
 
     public void setTrailer(String trailer) {
         this.trailer = trailer;
     }
 
+    public String getImageThumbnail() {
+        return imageThumbnail;
+    }
+
     public void setImageThumbnail(String imageThumbnail) {
         this.imageThumbnail = imageThumbnail;
+    }
+
+    public Double getSize() {
+        return size;
     }
 
     public void setSize(Double size) {
         this.size = size;
     }
 
-    public void setPrice(BigDecimal price) {
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getReleaseDate() {
+        return releaseDate;
     }
 
     public void setReleaseDate(Date releaseDate) {

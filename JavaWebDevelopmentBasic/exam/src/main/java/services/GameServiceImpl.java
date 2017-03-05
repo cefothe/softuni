@@ -13,7 +13,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -36,6 +36,7 @@ public class GameServiceImpl implements GameService {
         game.setDescription(createGameModel.getDescription());
         game.setImageThumbnail(createGameModel.getImageThumbnail());
         game.setTitle(createGameModel.getTitle());
+        game.setPrice(Double.valueOf(createGameModel.getPrice()));
         game.setTrailer(createGameModel.getTrailer());
         game.setSize(Double.valueOf(createGameModel.getSize()));
         setReleaseDate(createGameModel, game);
@@ -87,7 +88,7 @@ public class GameServiceImpl implements GameService {
         setReleaseDate(createGameModel,game);
         game.setDescription(createGameModel.getDescription());
         game.setTrailer(createGameModel.getTrailer());
-        game.setPrice(createGameModel.getPrize());
+        game.setPrice(Double.valueOf(createGameModel.getPrice()));
 
         gameRepository.updateGame(game,id);
     }

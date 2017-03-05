@@ -7,7 +7,6 @@ import com.mvcFramework.annotations.request.GetMapping;
 import com.mvcFramework.annotations.request.PostMapping;
 import com.mvcFramework.models.Model;
 import model.binding.CreateGameModel;
-import model.binding.CreateUserModel;
 import model.view.GamesModel;
 import services.interfaces.GameService;
 

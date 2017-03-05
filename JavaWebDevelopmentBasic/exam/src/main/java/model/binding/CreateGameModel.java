@@ -14,8 +14,8 @@ public class CreateGameModel {
     @Pattern(regexp = "^[A-Z].{3,100}$", message = "The name of game should be start with capital letter")
     private String title;
 
-
-    private BigDecimal prize;
+    @Pattern(regexp = "^([0-9]+.[0-9]{0,2})$", message ="Size is incorrect")
+    private String price;
 
     @Pattern(regexp = "^([0-9]+.[0-9]{0,1})$", message ="Size is incorrect")
     private String size;
@@ -34,9 +34,9 @@ public class CreateGameModel {
     public CreateGameModel() {
     }
 
-    public CreateGameModel(String title, BigDecimal prize, String size, String trailer, String imageThumbnail, String description, String releaseDate) {
+    public CreateGameModel(String title, String price, String size, String trailer, String imageThumbnail, String description, String releaseDate) {
         this.title = title;
-        this.prize = prize;
+        this.price = price;
         this.size = size;
         this.trailer = trailer;
         this.imageThumbnail = imageThumbnail;
@@ -52,12 +52,12 @@ public class CreateGameModel {
         this.title = title;
     }
 
-    public BigDecimal getPrize() {
-        return prize;
+    public String getPrice() {
+        return price;
     }
 
-    public void setPrize(BigDecimal prize) {
-        this.prize = prize;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getSize() {

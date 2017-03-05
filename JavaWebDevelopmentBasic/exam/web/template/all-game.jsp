@@ -9,7 +9,7 @@
 <main>
     <div class="container">
         <div class="row">
-            <h2 class="m-1">All Games &ndash;&nbsp;</h2> <a href="/game/add" class="btn btn-warning m-1"><strong>+</strong> Add
+            <h2 class="m-1">All Games &ndash;&nbsp;</h2> <a href="/admin/game/add" class="btn btn-warning m-1"><strong>+</strong> Add
             Game</a>
             <table class="table table-striped table-hover">
                 <thead>

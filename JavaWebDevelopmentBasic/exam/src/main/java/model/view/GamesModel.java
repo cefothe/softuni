@@ -18,7 +18,7 @@ public class GamesModel {
 
     private Double size;
 
-    private BigDecimal price;
+    private Double price;
 
     private String description;
 
@@ -26,7 +26,7 @@ public class GamesModel {
 
     private String releaseDateString;
 
-    public GamesModel(long id, String title, String trailer, String imageThumbnail, Double size, BigDecimal price, String description, Date releaseDate, String releaseDateString) {
+    public GamesModel(long id, String title, String trailer, String imageThumbnail, Double size, Double price, String description, Date releaseDate, String releaseDateString) {
         this.id = id;
         this.title = title;
         this.trailer = trailer;
@@ -81,11 +81,11 @@ public class GamesModel {
         this.size = size;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
