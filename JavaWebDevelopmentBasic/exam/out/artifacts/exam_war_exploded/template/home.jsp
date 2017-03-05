@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="card-footer">
-                            <a class="card-button btn btn-outline-primary" name="info" href="#">Info</a>
+                            <a class="card-button btn btn-outline-primary" name="info" href="/game/${game.id}">Info</a>
                             <a class="card-button btn btn-primary" name="buy" href="#">Buy</a>
                         </div>
 

@@ -11,7 +11,7 @@
         aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
-<a class="navbar-brand" href="#">SoftUni Store</a>
+<a class="navbar-brand" href="/">SoftUni Store</a>
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -26,7 +26,7 @@
                 Admin
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/game/all">Games</a>
+                <a class="dropdown-item" href="/admin/game/all">Games</a>
             </div>
         </li>
 

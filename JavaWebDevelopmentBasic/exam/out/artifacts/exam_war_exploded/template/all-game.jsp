@@ -30,8 +30,8 @@
                         <td>${game.size} GB</td>
                         <td>${game.price} &euro;</td>
                         <td>
-                            <a href="/game/edit/<c:out value="${game.id}"/>" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="/game/delete/<c:out value="${game.id}"/>" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="/admin/game/edit/<c:out value="${game.id}"/>" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/admin/game/delete/<c:out value="${game.id}"/>" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                     <c:set var="rowNumber" value="${rowNumber + 1}" scope="page"/>

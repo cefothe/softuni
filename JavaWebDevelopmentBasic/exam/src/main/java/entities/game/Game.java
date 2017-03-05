@@ -29,7 +29,7 @@ public class Game extends BaseEntityAdapter implements Serializable{
 
     private Double size;
 
-    private BigDecimal price;
+    private Double price;
 
     @Column(columnDefinition = "TEXT")
     private String description;

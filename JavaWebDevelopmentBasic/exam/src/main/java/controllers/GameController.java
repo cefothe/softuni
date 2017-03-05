@@ -28,27 +28,27 @@ public class GameController {
     @Inject
     private GameService gameService;
 
-    @GetMapping("/game/add")
+    @GetMapping("/admin/game/add")
     public String gamePage(){
         return "template/add-game";
     }
 
-    @PostMapping("/game/add")
+    @PostMapping("/admin/game/add")
     public String createGame(@ModelAttribute CreateGameModel createGameModel, Model model){
 
         if (checkForConstraints(createGameModel, model)) return "template/add-game";
 
         gameService.createGame(createGameModel);
-        return "redirect:/game/all";
+        return "redirect:/admin/game/all";
     }
 
-    @GetMapping("/game/all")
+    @GetMapping("/admin/game/all")
     public String allGames(Model model){
         model.addAttribute("games",this.gameService.findAllGames());
         return "template/all-game";
     }
 
-    @GetMapping("/game/delete/{id}")
+    @GetMapping("/admin/game/delete/{id}")
     public String deletePageGame(@PathVariable("id") long id, Model model){
         GamesModel gamesModel = gameService.findById(id);
         model.addAttribute("pageName","Delete game");
@@ -56,13 +56,13 @@ public class GameController {
         return "template/delete-game";
     }
 
-    @PostMapping("/game/delete/{id}")
+    @PostMapping("/admin/game/delete/{id}")
     public String deleteConfirm(@PathVariable("id") long id){
         gameService.deleteGame(id);
-        return "redirect:/game/all";
+        return "redirect:/admin/game/all";
     }
 
-    @GetMapping("/game/edit/{id}")
+    @GetMapping("/admin/game/edit/{id}")
     public String editPageGame(@PathVariable("id") long id, Model model){
         GamesModel gamesModel = gameService.findById(id);
         model.addAttribute("pageName","Delete game");
@@ -70,13 +70,21 @@ public class GameController {
         return "template/edit-game";
     }
 
-    @PostMapping("/game/edit/{id}")
+    @PostMapping("/admin/game/edit/{id}")
     public String editPage(@PathVariable("id") long id, @ModelAttribute CreateGameModel createGameModel, Model model){
 
         if (checkForConstraints(createGameModel, model)) return "template/add-game";
 
         gameService.updateGame(createGameModel,id);
-        return "redirect:/game/all";
+        return "redirect:/admin/game/all";
+    }
+
+    @GetMapping("/game/{id}")
+    public String detailGame(@PathVariable("id") long id, Model model){
+        GamesModel gamesModel = gameService.findById(id);
+        model.addAttribute("pageName","Detail game");
+        model.addAttribute("game",gamesModel);
+        return  "template/game-datails";
     }
 
     private boolean checkForConstraints(CreateGameModel createGameModel, Model model) {

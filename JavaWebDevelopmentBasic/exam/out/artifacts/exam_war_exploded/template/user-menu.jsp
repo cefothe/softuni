@@ -11,7 +11,7 @@
         aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
-<a class="navbar-brand" href="#">SoftUni Store</a>
+<a class="navbar-brand" href="/">SoftUni Store</a>
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">

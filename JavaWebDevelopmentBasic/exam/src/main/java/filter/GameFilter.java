@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Created by cefothe on 05.03.17.
  */
-@WebFilter("/game/*")
+@WebFilter("/admin/game/*")
 @Stateless
 public class GameFilter implements Filter {
 
