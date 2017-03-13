@@ -1,0 +1,25 @@
+package com.cefothe.controller;
+
+import com.cefothe.entities.Animal;
+import com.cefothe.entities.Dog;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+/**
+ * Created by Stefan Angelov - Delta Source Bulgaria on 3/13/17.
+ */
+@Controller
+public class HomeController {
+
+    @Autowired
+    private Animal god;
+
+    @GetMapping("/")
+    @ResponseBody
+    public String getHomePage(){
+        god.setName("Pesho");
+        return god.getName();
+    }
+}
