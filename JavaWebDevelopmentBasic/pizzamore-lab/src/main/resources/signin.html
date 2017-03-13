@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+<link rel="stylesheet" href="css/signin.css"/>
+<body>
+<div class="container">
+    <div class="jumbotron vertical-center">
+        <form method="post" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-sm-offset-2">Username:</label>
+                <div class="col-sm-4">
+                    <input class="form-control" name="username" type="text"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-sm-offset-2">Password:</label>
+                <div class="col-sm-4">
+                    <input class="form-control" name="password" type="password"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox col-sm-2 col-sm-offset-4">
+                    <label>
+                        <input type="checkbox" name="rememberme"/>
+                        <span>Remember me</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <input class="btn btn-success" type="submit" name="signup" value="Sign Up"/>
+                    <input class="btn btn-warning" type="submit" name="home" value="Home"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
