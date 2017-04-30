@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head></head>
+    <body>
+        <p th:text="'Hello, ' + ${name} + '!'" />
+        <a th:href="@{/register}">Register</a>
+        <a th:href="@{/order/details(id=12)}">Order details</a>
+        <p th:text="#{spring.devtools.restart.pollInterval}" />
+
+    <div th:with="newName = ${name}">
+        <span th:text="${newName}"></span>
+    </div>
+
+    <form th:action="@{user}", th:method="post">
+        <input type="number" name="id">
+        <input type="text" name="name">
+        <input type="submit" name="Send">
+    </form>
+
+    <div th:if="${boolTrue}"> This is a true</div>
+    <div th:unless="${boolFalse}"> This is a false</div>
+
+    <div th:switch="${role}">
+        <p th:case="'ADMIN'">Admin</p>
+        <p th:case="'USER'">USER</p>
+        <p th:case="*">ALL User</p>
+    </div>
+
+    <div th:each="element : ${#numbers.sequence(1,5)}">
+        <p th:text="${element}"></p>
+    </div>
+    </body>
+</html>
